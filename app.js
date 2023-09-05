@@ -4,6 +4,8 @@ console.log("Welcome, This is rock, paper and scissors game. Hope you enjoy")
 
 const inputUser = prompt("enter your choice 'rock' 'paper' 'scissors'").toLocaleLowerCase();
 
+let userPoints = 0;
+let computerPoints = 0;
 
 const userChoice = (input) => { 
     if (input == "rock" || input == "paper" || input == "scissors"){
@@ -25,34 +27,23 @@ const getComputerChoice = () => {
 const computer = getComputerChoice();
 
 
-const messege = (userOne, compu) => {
-    let arr = [userOne, compu];
-    if (arr[0].length <= 8){
-        return `${arr[0]}-${arr[1]}`
-    } else {
-        return arr[0];
-    }
-}
-console.log(messege(user, computer));
-
-
-
-const winner = (str1, str2) => {
+const whoWins = (playerOne, playerTwo) => {
     let output = "";
-    
-    if (str1 == "paper" && str2 == "rock" || str1 == "rock" && str2 == "scissors" || str1 == "scissors" && str2 == "paper"){
-       output = "You won" 
+
+    if (playerOne == "rock" && playerTwo == "scissors" || playerOne == "paper" && playerTwo == "rock" || playerOne == "scissors" && playerTwo == "paper"){
+        output = "You win"
     } else {
-        output = "The computer won"
+        output = "The computer win"
     }
-    
-    if (str1 === str2){
+
+
+    if (playerOne == playerTwo){
         output = "Draw"
     }
-    
-    return output
+
+    return output;
 }
 
+console.log(`You : ${user}`, `||  The computer : ${computer}`);
 
-console.log(winner(user, computer))
-
+console.log(whoWins(user, computer));
