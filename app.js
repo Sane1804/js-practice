@@ -1,21 +1,13 @@
+const userChoice = () => { 
+    let input = prompt("enter your choice 'rock' 'paper' 'scissors'").toLocaleLowerCase();
 
 
-console.log("Welcome, This is rock, paper and scissors game. Hope you enjoy")
-
-const inputUser = prompt("enter your choice 'rock' 'paper' 'scissors'").toLocaleLowerCase();
-
-let userPoints = 0;
-let computerPoints = 0;
-
-const userChoice = (input) => { 
     if (input == "rock" || input == "paper" || input == "scissors"){
         return input
     } else {
         return "Not a valid option. Try again"
     }
 }
-
-const user = userChoice(inputUser);
 
 
 const getComputerChoice = () => {
@@ -24,26 +16,38 @@ const getComputerChoice = () => {
     return arr[randomIndex];
 }
 
-const computer = getComputerChoice();
 
 
-const whoWins = (playerOne, playerTwo) => {
-    let output = "";
+const game = () => {
+    console.log("Welcome to this boring game. Hoping it works well")
+    let player1 = 0;
+    let player2 = 0;
 
-    if (playerOne == "rock" && playerTwo == "scissors" || playerOne == "paper" && playerTwo == "rock" || playerOne == "scissors" && playerTwo == "paper"){
-        output = "You win"
+    for (let i = 1; i <= 5; i++){
+        let user = userChoice()
+        let compu = getComputerChoice();
+
+        console.log(`You: ${user} | Compu: ${compu}`);
+
+
+        if (user == "rock" && compu == "scissors" || user == "paper" && compu == "rock" || user == "scissors" && compu == "paper"){
+            player1++
+        } else {
+            player2++
+        }
+
+
+
+        console.log(player1,player2)
+    }
+
+    if (player1 > player2) {
+        return "You won"
     } else {
-        output = "The computer win"
+        return "The compu won"
     }
-
-
-    if (playerOne == playerTwo){
-        output = "Draw"
-    }
-
-    return output;
 }
 
-console.log(`You : ${user}`, `||  The computer : ${computer}`);
 
-console.log(whoWins(user, computer));
+console.log(game());
+
