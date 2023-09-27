@@ -14,8 +14,9 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    border: 5px solid blue;
     flex: 1;
+    background-color: #260c1a;;
+
 }
 
 .header {
@@ -23,12 +24,14 @@ body {
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+    
 }
 
 .header h1 {
     border: 1px solid black;
     padding: 5px;
     flex-shrink: 0;
+    background-color: #f7f7f2;
 }
 
 
@@ -92,6 +95,40 @@ body {
     width: 400px;
     border: 1px solid black;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user div {
+    border: 1px solid black;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.user div:hover {
+    cursor: pointer;
+}
+
+.user > div > img {
+    max-width: 150px;
+}
+
+
+
+.card-header {
+    height: 50px;
+    width: 100%;
+    border: 2px dashed black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f05d23;
+    padding-left: 10px;
 }
 
 
@@ -104,6 +141,8 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 50px;
+    background-color: #f05d23;
+    border-radius: 10px;
 }
 
 
