@@ -100,6 +100,10 @@ body {
     align-items: center;
 }
 
+.user-choice {
+    margin-left: 10px;
+}
+
 .user div {
     border: 1px solid black;
     width: 100%;
