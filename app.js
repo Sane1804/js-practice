@@ -27,18 +27,22 @@ const game = () => {
         let user = userChoice()
         let compu = getComputerChoice();
 
+        console.log(`Round ${i}`);
         console.log(`You: ${user} | Compu: ${compu}`);
 
 
         if (user == "rock" && compu == "scissors" || user == "paper" && compu == "rock" || user == "scissors" && compu == "paper"){
             player1++
-        } else {
+        } else if (compu == "rock" && user == "scissors" || compu == "paper" && user == "rock" || compu == "scissors" && user == "paper") {
             player2++
         }
 
+        if (user == compu){
+            player1++;
+            player2++;
+        }
 
-
-        console.log(player1,player2)
+        console.log("You: ", player1, "|", "Compu: ", player2);
     }
 
     if (player1 > player2) {
