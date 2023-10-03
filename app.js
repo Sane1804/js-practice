@@ -6,12 +6,14 @@ const computerImage = document.querySelector(".compu");
 
 const compuChoice = document.querySelector(".compu-choice");
 
+const leftHearts = document.querySelectorAll(".left-hearts > .icon");
 
+const rightHearts = document.querySelectorAll(".right-hearts > .icon");
 
-
+const compuSrc = computerImage.getAttribute("src");
 
 const displayComputerChoice = () => {
-    const compuSrc = computerImage.getAttribute("src")
+
     if (compuSrc == "images/question-mark.png"){
         const ramdonIndex = Math.floor(Math.random() * 3)
         const arr = ["rock", "paper", "scissors"];
@@ -21,7 +23,6 @@ const displayComputerChoice = () => {
             2 : "images/scissors-right.png"
         }
         computerImage.setAttribute("src", path[ramdonIndex])
-        computerImage.style.maxWidth = "350px"
         if (compuChoice.textContent == ""){
             compuChoice.textContent = arr[ramdonIndex];
         }
@@ -34,7 +35,7 @@ const displayUserChoice = (clicked) => {
             element.parentElement.style.display = "none"
             cardHeader.textContent = clicked;
         } else {
-            element.style.maxWidth = "350px"
+            element.style.maxWidth = "350px";
         }
     })
 }
@@ -58,6 +59,28 @@ const loser = (string1, string2) => {
 } 
 
 
+
+
+const removeLoserHeart = (arr) => {
+    if (arr[0] < 0){
+        leftHearts[0].style.display = "none";
+    } else if (arr[1] < 0) {
+        rightHearts[0].style.display = "none";
+    } else {
+        return;
+    }
+    console.log(arr);
+}
+
+
+// const replay = (selectedHand) => {
+//     const compuImg = document.querySelector(".compu");
+//     compuImg.setAttribute("src", compuSrc);
+//     // [cardHeader.textContent, compuChoice.textContent] = "";
+//     console.log(selectedHand)
+// }
+
+
 const playRound = (e) => {
     const CLICKED = e.target.parentElement.className;
     displayUserChoice(CLICKED)
@@ -65,7 +88,7 @@ const playRound = (e) => {
     const user = cardHeader.textContent;
     const compu = compuChoice.textContent;
     const score = loser(user, compu);
-    console.log(score)
+    removeLoserHeart(score);
 }
 
 hands.forEach(hand => hand.addEventListener("click", playRound))

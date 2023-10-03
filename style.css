@@ -118,6 +118,10 @@ body {
     max-width: 150px;
 }
 
+.user > div > .compu {
+    max-width: 350px;
+}
+
 
 
 .card-header {
