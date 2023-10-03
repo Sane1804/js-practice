@@ -1,5 +1,7 @@
 const hands = document.querySelectorAll(".real > div > img");
 
+const boxHands = document.querySelectorAll(".real > div");
+
 const cardHeader = document.querySelector(".user-choice");
 
 const computerImage = document.querySelector(".compu");
@@ -69,16 +71,19 @@ const removeLoserHeart = (arr) => {
     } else {
         return;
     }
-    console.log(arr);
 }
 
 
-// const replay = (selectedHand) => {
-//     const compuImg = document.querySelector(".compu");
-//     compuImg.setAttribute("src", compuSrc);
-//     // [cardHeader.textContent, compuChoice.textContent] = "";
-//     console.log(selectedHand)
-// }
+const replay = (selectedElem) => {
+    setTimeout(() => {
+    const compuImg = document.querySelector(".compu");
+    compuImg.setAttribute("src", compuSrc);
+    [cardHeader.textContent, compuChoice.textContent] = "";
+    selectedElem.removeAttribute("style");
+    boxHands.forEach(elem => elem.removeAttribute("style"));
+    console.log(selectedElem)
+    }, 2000)
+}
 
 
 const playRound = (e) => {
@@ -89,6 +94,7 @@ const playRound = (e) => {
     const compu = compuChoice.textContent;
     const score = loser(user, compu);
     removeLoserHeart(score);
+    replay(e.target);
 }
 
 hands.forEach(hand => hand.addEventListener("click", playRound))
