@@ -38,6 +38,7 @@ const displayUserChoice = (clicked) => {
             cardHeader.textContent = clicked;
         } else {
             element.style.maxWidth = "350px";
+            element.style.pointerEvents = "none";
         }
     })
 }
