@@ -73,6 +73,10 @@ body {
     border-top-right-radius:20px;
 }
 
+.icon > .grey {
+    background-color: grey;
+}
+
 
 .left {
     transform: rotate(-45deg);

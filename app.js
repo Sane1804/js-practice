@@ -8,9 +8,9 @@ const computerImage = document.querySelector(".compu");
 
 const compuChoice = document.querySelector(".compu-choice");
 
-const leftHearts = document.querySelectorAll(".left-hearts > .icon");
+const leftHearts = document.querySelectorAll(".left-hearts > .icon > div");
 
-const rightHearts = document.querySelectorAll(".right-hearts > .icon");
+const rightHearts = document.querySelectorAll(".right-hearts > .icon > div");
 
 const compuSrc = computerImage.getAttribute("src");
 
@@ -49,6 +49,7 @@ const loser = (string1, string2) => {
     const arr = [0, 0]; 
     const str1 = string1.toLowerCase()
     const str2 = string2.toLowerCase();
+
     if (str1 == str2){
         return arr;
     }
@@ -58,17 +59,36 @@ const loser = (string1, string2) => {
     } else {
         arr[0]--;
     }
+
     return arr;
 } 
 
+const changeHeartColor = (nodeArr) => {
+    const array = Array.from(nodeArr);
+    const heartPair = [];
+    for (let i = 0; i < array.length; i+=2){
+        heartPair.push(array.slice(i, i+2))
+    }
+    console.log(heartPair)
+    for (let i = 0; i < heartPair.length; i++){
+        if (heartPair[i][0].className.length == 4){
+            heartPair[i][0].classList.add("grey")
+            heartPair[i][1].classList.add("grey")
+            break;
+        }
+        console.log(heartPair[i][0].className)
+    }
+}
 
 
 
 const removeLoserHeart = (arr) => {
     if (arr[0] < 0){
-        leftHearts[0].style.display = "none";
+        console.log("left")
+        console.log(changeHeartColor(leftHearts))
     } else if (arr[1] < 0) {
-        rightHearts[0].style.display = "none";
+        console.log("right")
+        console.log(changeHeartColor(rightHearts))
     } else {
         return;
     }
