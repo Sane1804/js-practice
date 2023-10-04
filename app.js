@@ -69,14 +69,12 @@ const changeHeartColor = (nodeArr) => {
     for (let i = 0; i < array.length; i+=2){
         heartPair.push(array.slice(i, i+2))
     }
-    console.log(heartPair)
     for (let i = 0; i < heartPair.length; i++){
         if (heartPair[i][0].className.length == 4){
             heartPair[i][0].classList.add("grey")
             heartPair[i][1].classList.add("grey")
             break;
         }
-        console.log(heartPair[i][0].className)
     }
 }
 
@@ -84,11 +82,9 @@ const changeHeartColor = (nodeArr) => {
 
 const removeLoserHeart = (arr) => {
     if (arr[0] < 0){
-        console.log("left")
-        console.log(changeHeartColor(leftHearts))
+        changeHeartColor(leftHearts)
     } else if (arr[1] < 0) {
-        console.log("right")
-        console.log(changeHeartColor(rightHearts))
+        changeHeartColor(rightHearts)
     } else {
         return;
     }
@@ -102,7 +98,6 @@ const replay = (selectedElem) => {
     [cardHeader.textContent, compuChoice.textContent] = "";
     selectedElem.removeAttribute("style");
     boxHands.forEach(elem => elem.removeAttribute("style"));
-    console.log(selectedElem)
     }, 2000)
 }
 
