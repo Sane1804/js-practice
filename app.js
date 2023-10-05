@@ -93,12 +93,28 @@ const removeLoserHeart = (arr) => {
 
 const replay = (selectedElem) => {
     setTimeout(() => {
-    const compuImg = document.querySelector(".compu");
-    compuImg.setAttribute("src", compuSrc);
-    [cardHeader.textContent, compuChoice.textContent] = "";
-    selectedElem.removeAttribute("style");
-    boxHands.forEach(elem => elem.removeAttribute("style"));
+        const compuImg = document.querySelector(".compu");
+        compuImg.setAttribute("src", compuSrc);
+        [cardHeader.textContent, compuChoice.textContent] = "";
+        selectedElem.removeAttribute("style");
+        boxHands.forEach(elem => elem.removeAttribute("style"));
     }, 2000)
+}
+
+
+const isLastHeart = (nodeArr) => {
+    const arr = Array.from(nodeArr)[nodeArr.length-2];
+    if (arr.className.length > 4){
+        return true;
+    }
+}
+
+const gameWinner = () => {
+    if (isLastHeart(leftHearts)){
+        console.log("compu won")
+    } else if (isLastHeart(rightHearts)){
+        console.log("you won")
+    }
 }
 
 
@@ -111,6 +127,7 @@ const playRound = (e) => {
     const score = loser(user, compu);
     removeLoserHeart(score);
     replay(e.target);
+    gameWinner()
 }
 
 hands.forEach(hand => hand.addEventListener("click", playRound))
