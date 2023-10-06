@@ -15,8 +15,7 @@ const rightHearts = document.querySelectorAll(".right-hearts > .icon > div");
 const compuSrc = computerImage.getAttribute("src");
 
 const displayComputerChoice = () => {
-
-    if (compuSrc == "images/question-mark.png"){
+    // if (compuSrc == "images/question-mark.png"){
         const ramdonIndex = Math.floor(Math.random() * 3)
         const arr = ["rock", "paper", "scissors"];
         const path = {
@@ -28,7 +27,7 @@ const displayComputerChoice = () => {
         if (compuChoice.textContent == ""){
             compuChoice.textContent = arr[ramdonIndex];
         }
-    }
+    // }
 }
 
 const displayUserChoice = (clicked) => {
@@ -44,7 +43,7 @@ const displayUserChoice = (clicked) => {
 }
 
 
-//Determinate who lost a life after a round
+//Determinates who lost a the round
 const loser = (string1, string2) => {
     const arr = [0, 0]; 
     const str1 = string1.toLowerCase()
@@ -108,12 +107,14 @@ const isLastHeart = (nodeArr) => {
         return true;
     }
 }
-
+const container = document.querySelector(".container");
 const gameWinner = () => {
     if (isLastHeart(leftHearts)){
         console.log("compu won")
+        // container.style.display = "node";
     } else if (isLastHeart(rightHearts)){
         console.log("you won")
+        // container.style.display = "none";
     }
 }
 
