@@ -15,7 +15,6 @@ const rightHearts = document.querySelectorAll(".right-hearts > .icon > div");
 const compuSrc = computerImage.getAttribute("src");
 
 const displayComputerChoice = () => {
-    // if (compuSrc == "images/question-mark.png"){
         const ramdonIndex = Math.floor(Math.random() * 3)
         const arr = ["rock", "paper", "scissors"];
         const path = {
@@ -27,7 +26,6 @@ const displayComputerChoice = () => {
         if (compuChoice.textContent == ""){
             compuChoice.textContent = arr[ramdonIndex];
         }
-    // }
 }
 
 const displayUserChoice = (clicked) => {
