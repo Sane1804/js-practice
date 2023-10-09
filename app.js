@@ -14,6 +14,8 @@ const rightHearts = document.querySelectorAll(".right-hearts > .icon > div");
 
 const compuSrc = computerImage.getAttribute("src");
 
+const vsBtn = document.querySelector(".vs");
+
 const displayComputerChoice = () => {
         const ramdonIndex = Math.floor(Math.random() * 3)
         const arr = ["rock", "paper", "scissors"];
@@ -105,14 +107,12 @@ const isLastHeart = (nodeArr) => {
         return true;
     }
 }
-const container = document.querySelector(".container");
+
 const gameWinner = () => {
     if (isLastHeart(leftHearts)){
         console.log("compu won")
-        // container.style.display = "node";
     } else if (isLastHeart(rightHearts)){
         console.log("you won")
-        // container.style.display = "none";
     }
 }
 
@@ -130,3 +130,5 @@ const playRound = (e) => {
 }
 
 hands.forEach(hand => hand.addEventListener("click", playRound))
+
+// vsBtn.classList.add("winner-box");

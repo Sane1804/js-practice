@@ -102,6 +102,14 @@ body {
     border-radius: 10px;
 }
 
+.real {
+    margin-right: 80px;
+}
+
+.computer {
+    margin-left: 80px;
+}
+
 .user-choice {
     margin-left: 10px;
 }
@@ -141,20 +149,49 @@ body {
 
 
 .vs {
+    color: white;
     width: 150px;
     height: 150px;
-    border: 1px solid black;
+    border: 1px solid red;
     flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    background-color: #f05d23;
+    background-color: rgb(0,0,0,0.95);
     border-radius: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 
 footer {
     padding: 20px 0px;
     text-align: center;
+}
+
+
+.winner-box {
+    width: 300px;
+    height: 250px;
+
+}
+
+
+.winner-box {
+    color: white;
+    width: 500px;
+    height: 300px;
+    border: 1px solid red;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0,0,0,0.95);
+    border-radius: 10px;
+    position: absolute;
+    left:0;
+    right: 0;
+    margin: 0 auto;
 }
