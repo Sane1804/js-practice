@@ -16,7 +16,6 @@ body {
     flex-direction: column;
     flex: 1;
     background-color:rgb(0,0,0,0.95);
-
 }
 
 .header {
@@ -34,12 +33,14 @@ body {
 
 
 .container {
+    width: 85%;
     display: flex;
     justify-content: space-between;
     align-items: center;    
     flex-grow:  1;
     flex-shrink: 0;
     padding: 1px;
+    margin: 0 auto;
 }
 
 
@@ -103,11 +104,11 @@ body {
 }
 
 .real {
-    margin-right: 80px;
+    margin-right: auto;
 }
 
 .computer {
-    margin-left: 80px;
+    margin-left: auto;
 }
 
 .user-choice {
@@ -160,10 +161,6 @@ body {
     font-size: 50px;
     background-color: rgb(0,0,0,0.95);
     border-radius: 10px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
 }
 
 
@@ -174,24 +171,53 @@ footer {
 
 
 .winner-box {
-    width: 300px;
-    height: 250px;
-
-}
-
-
-.winner-box {
     color: white;
-    width: 500px;
-    height: 300px;
+    width: 400px;
+    height: 250px;
     border: 1px solid red;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
+    gap: 30px;
     background-color: rgb(0,0,0,0.95);
     border-radius: 10px;
-    position: absolute;
+    position: fixed;
     left:0;
     right: 0;
     margin: 0 auto;
+}
+
+.col1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid white;
+    width: 100%;
+}
+
+.col1 > h2 {
+    font-weight: 900;
+    font-size: 30px;
+    color: white;
+}
+
+
+.col2 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid red;
+
+}
+
+.col2 > button {
+    width: 100px;
+    height: 30px;
+    background-color: #222831;
+    border-radius: 10px;
+    color: white;
+    padding: 4px;
 }

@@ -108,11 +108,46 @@ const isLastHeart = (nodeArr) => {
     }
 }
 
+const togleElem = (node1, node2) => {
+    node1.classList.toggle("real-end");
+    node2.classList.toggle("computer-end");
+}
+
+const displayMessegeWinnerBox = (str) => {
+    const leftUser = document.querySelector(".real");
+    const rightUser = document.querySelector(".computer");
+    togleElem(leftUser, rightUser);
+    console.log(leftUser.className)
+    console.log(rightUser.className)
+    let col1 = document.createElement("div");
+    let col2 = document.createElement("div");
+    let h2 = document.querySelector(".vs > h2");
+    let restartBtn = document.createElement("button");
+
+
+    vsBtn.classList.add("winner-box")
+
+    // // building col1 
+    h2.textContent = str;
+    col1.appendChild(h2);
+    col1.classList.add("col1");
+
+    // building col2
+    restartBtn.textContent = "Play again";
+    col2.appendChild(restartBtn);
+    col2.classList.add("col2");
+
+    vsBtn.appendChild(col1);
+    vsBtn.appendChild(col2);
+
+    hands.forEach(btn => console.log(btn));
+}
+
 const gameWinner = () => {
     if (isLastHeart(leftHearts)){
-        console.log("compu won")
+        displayMessegeWinnerBox("The computer Won")
     } else if (isLastHeart(rightHearts)){
-        console.log("you won")
+        displayMessegeWinnerBox("You won");
     }
 }
 
@@ -130,5 +165,3 @@ const playRound = (e) => {
 }
 
 hands.forEach(hand => hand.addEventListener("click", playRound))
-
-// vsBtn.classList.add("winner-box");
