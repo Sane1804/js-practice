@@ -114,6 +114,7 @@ const displayMessegeWinnerBox = (str) => {
     let col2 = document.createElement("div");
     let h2 = document.querySelector(".vs > h2");
     let restartBtn = document.createElement("button");
+    
     restartBtn.addEventListener("click", () => {
         window.location.reload();
     })
