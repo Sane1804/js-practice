@@ -114,7 +114,9 @@ const displayMessegeWinnerBox = (str) => {
     let col2 = document.createElement("div");
     let h2 = document.querySelector(".vs > h2");
     let restartBtn = document.createElement("button");
-
+    restartBtn.addEventListener("click", () => {
+        window.location.reload();
+    })
 
     vsBtn.classList.add("winner-box")
 
@@ -130,8 +132,6 @@ const displayMessegeWinnerBox = (str) => {
 
     vsBtn.appendChild(col1);
     vsBtn.appendChild(col2);
-
-    hands.forEach(btn => console.log(btn));
 }
 
 const gameWinner = () => {
@@ -158,5 +158,6 @@ const playRound = (e) => {
 
     gameWinner()
 }
+
 
 hands.forEach(hand => hand.addEventListener("click", playRound))
