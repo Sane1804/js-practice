@@ -89,36 +89,27 @@ const removeLoserHeart = (arr) => {
     }
 }
 
-
-const replay = (selectedElem) => {
-    setTimeout(() => {
-        const compuImg = document.querySelector(".compu");
-        compuImg.setAttribute("src", compuSrc);
-        [cardHeader.textContent, compuChoice.textContent] = "";
-        selectedElem.removeAttribute("style");
-        boxHands.forEach(elem => elem.removeAttribute("style"));
-    }, 2000)
-}
-
-
 const isLastHeart = (nodeArr) => {
     const arr = Array.from(nodeArr)[nodeArr.length-2];
     if (arr.className.length > 4){
         return true;
-    }
+    } 
+    return false;
 }
 
-const togleElem = (node1, node2) => {
-    node1.classList.toggle("real-end");
-    node2.classList.toggle("computer-end");
+const replay = (selectedElem) => {
+        setTimeout(() => {
+            const compuImg = document.querySelector(".compu");
+            compuImg.setAttribute("src", compuSrc);
+            [cardHeader.textContent, compuChoice.textContent] = "";
+            selectedElem.removeAttribute("style");
+            boxHands.forEach(elem => elem.removeAttribute("style"));
+        }, 2000)
 }
+
+
 
 const displayMessegeWinnerBox = (str) => {
-    const leftUser = document.querySelector(".real");
-    const rightUser = document.querySelector(".computer");
-    togleElem(leftUser, rightUser);
-    console.log(leftUser.className)
-    console.log(rightUser.className)
     let col1 = document.createElement("div");
     let col2 = document.createElement("div");
     let h2 = document.querySelector(".vs > h2");
@@ -160,7 +151,13 @@ const playRound = (e) => {
     const compu = compuChoice.textContent;
     const score = loser(user, compu);
     removeLoserHeart(score);
-    replay(e.target);
+
+    if ( !isLastHeart(leftHearts) && !isLastHeart(rightHearts)){
+        console.log(isLastHeart(leftHearts))
+        console.log(isLastHeart(rightHearts))
+        replay(e.target);
+    }
+
     gameWinner()
 }
 

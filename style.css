@@ -33,7 +33,7 @@ body {
 
 
 .container {
-    width: 85%;
+    width: 1150px;
     display: flex;
     justify-content: space-between;
     align-items: center;    
@@ -179,7 +179,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    background-color: rgb(0,0,0,0.95);
+    background-color: rgb(0,0,0);
     border-radius: 10px;
     position: fixed;
     left:0;
@@ -192,8 +192,8 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 5px;
-    border: 1px solid white;
     width: 100%;
+    margin-top: 50px;
 }
 
 .col1 > h2 {
@@ -208,9 +208,9 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 5px;
-    border: 1px solid red;
-
+    padding: 5px 15px 5px 5px;
+    margin-top: auto;
+    margin-bottom: 10px;
 }
 
 .col2 > button {
