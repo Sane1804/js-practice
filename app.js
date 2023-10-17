@@ -153,8 +153,6 @@ const playRound = (e) => {
     removeLoserHeart(score);
 
     if ( !isLastHeart(leftHearts) && !isLastHeart(rightHearts)){
-        console.log(isLastHeart(leftHearts))
-        console.log(isLastHeart(rightHearts))
         replay(e.target);
     }
 
